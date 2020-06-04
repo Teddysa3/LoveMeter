@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lover meter</title>
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <link>@import
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet"> 
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <!-- Barre de navigation fixée -->
+    <nav class="navbar is-fixed-top is-danger">
+        <div class="navbar-brand">
+            <a href="#" class="navbar-item">
+                <img src="flower.png" alt="logo">
+            </a>
+            <div class="navbar-burger burger" id="btnNav" data-target="menuContent">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="menuContent" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="#acc" class="navbar-item">
+                    Accueil
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <a href="calculatrice.html" class="navbar-item">
+                    Calculatrice
+                </a>
+                <a href="liens.html" class="navbar-item">
+                    Liens externes
+                </a>
+                <a href="contact.html" class="navbar-item">
+                    Contact
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+<!-- Section page d'accueil -->
+<div class="columns is-desktop" id="acc">
+
+    <div class="column is-6-desktop">
+
+        <section class="hero is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <br><br><br><br><br><br><br><br>
+                    <h2 class="subtitle">Bonjour</h2>
+                    <h1 class="title is-1">Bienvenue sur notre love-meter</h1>
+                    <h2 class="subtitle is-2">Le calculateur de compatibilité</h2>
+                        <a href="calculatrice.html"><button class="button is-danger is-rounded is-medium">Faire le test !</button></a>
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <h2 class="subtitle">Faites le test sur notre calculatrice à l'aide des prénoms des deux personnes dont vous souhaitez connaitre la compatibilité amoureuse</h2>
+                        <br><br><br>
+                        <h2 class="subtitle">Attention : Ce test n'est en aucun cas indicatif de votre reel amour personnel</h2>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="column is-6-desktop has-text-centered">
+        <img src="image1.jpg" alt="img accueil">
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            Tout droits réservés. &copy;
+        </p>
+    </div>
+</footer>
+
+
+<script>
+    var btn = document.getElementById('btnNav');
+    varcontent = document.getElementById('menuContent');
+
+    btn.addEventListener('click', function(){
+        content.classList.toggle('is-active');
+    })
+</script>
+
+</body>
+</html>

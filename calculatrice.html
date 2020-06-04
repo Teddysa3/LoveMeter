@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lover meter</title>
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <link>@import
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet"> 
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+  <body>
+    <!-- Barre de navigation fixée -->
+    <nav class="navbar is-fixed-top is-danger">
+        <div class="navbar-brand">
+            <a href="#" class="navbar-item">
+                <img src="flower.png" alt="logo">
+            </a>
+            <div class="navbar-burger burger" data-target="menuContent">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="menuContent" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="#top" class="navbar-item">
+                    Calculatrice
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="navbar-item">
+                    Retourner à l'accueil
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section entrée -->
+<br><br><br><br><br>
+<section class="container" id="propos">
+    <h2 class="title is-1 has-text-centered" style="font-family: kaushan script;">
+        La calculatrice
+    </h2>
+    <figure class="image container is-128x128">
+        <img src="heart.png" alt="image coeur" class="is-square is-centered">
+    </figure>
+
+    <div class="field">
+        <label class="label has-text-centered">Prénom masculin</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Entrer un prénom" id="fname">
+        </div>
+      </div>
+      <h1 class="title is-1 is has-text-centered">+</h1>
+      <div class="field">
+        <label class="label has-text-centered">Prénom féminin</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Entrer un prénom" id="sname">
+        </div>
+      </div>
+
+    <br><br>
+    <progress class="progress is-danger" max="100">30%</progress>
+    <br><br>
+    <div class="columns is-centered">
+    <button class="button is-danger is-rounded is-medium" id="btnNav">Tester !</button>
+    </div>
+</section>
+<br>
+    <!-- Section réponse -->
+    <br><br><br><br><br>
+    <section class="container" id="propos">
+        <h2 class="title is-1 has-text-centered" style="font-family: kaushan script;">
+            Résultat
+        </h2>
+        <figure class="image container is-128x128">
+            <img src="heart.png" alt="image coeur" class="is-square is-centered">
+        </figure>
+
+        <div class="columns">
+            <div class="column has-text-centered">
+                <h2 class="subtitle is-2" id="nom1" style="font-family: kaushan script;"></h2>
+            </div>
+            <div class="column">
+                <h1 class="title is-1 has-text-centered" id="percentage">%</h1>
+            </div>
+            <div class="column has-text-centered">
+                <h2 class="subtitle is-2" id="nom2" style="font-family: kaushan script;"></h2>
+            </div>
+          </div>
+
+
+        <br>
+        <div class="columns is-centered">
+            <p class="column is-6 has-text-centered" id="texte">
+               
+            </p>
+    
+        </div>
+    </section>
+
+<br><br><br><br><br>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Tout droits réservés. &copy;
+            </p>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    var btn = document.getElementById('btnNav');
+    var content = document.getElementById('menuContent');
+
+    btn.addEventListener('click', function(){
+        let fname = document.getElementById('fname');
+        fname = fname.value;
+        var nom1 = document.getElementById("nom1");
+        nom1.innerText = fname ;
+        let sname = document.getElementById('sname');
+        sname = sname.value;
+        var nom2 = document.getElementById("nom2");
+        nom2.innerText = sname ;
+        content.classList.toggle('is-active');
+
+        let a;
+
+    
+        fetch("https://love-calculator.p.rapidapi.com/getPercentage?fname="+ fname + "&sname="+sname + "", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "love-calculator.p.rapidapi.com",
+            "x-rapidapi-key": "9e7984a125msh5de285cef413bb3p14ddeajsnf2ab55c15454"
+        }
+    
+    })
+    
+
+.then(response => response.json())
+
+.then(response => {
+    console.log(response.percentage);
+    a = response.percentage;
+    var pourcentage = document.getElementById("percentage");
+    pourcentage.innerText = a + ' %' ;
+    console.log(a);
+    var phrase = document.getElementById("texte");
+    phrase.innerText = response.result ;
+
+})
+
+    
+
+})
+
+</script>
+  </body>
+</html>
